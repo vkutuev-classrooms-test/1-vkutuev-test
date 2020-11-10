@@ -13,12 +13,14 @@ jobs:
       - uses: actions/checkout@v2
       - name: Printing compiler info
         run: |
-          echo $CC
+          echo "compiler is $CC"
           cc --version
+          gcc --version
+          clang --version
       - name: Building source code
         run: |
          mkdir -p cmake_build && \
          cd ./cmake_build && \
          cmake .. && \
-         make
+         make VERBOSE=1
 
